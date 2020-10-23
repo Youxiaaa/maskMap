@@ -3,7 +3,6 @@ let countySel = document.querySelector('.countySelClass');
 let townSel = document.querySelector('.townSelClass');
 let searchBtn = document.querySelector('.searchBtn');
 let mapChange = document.querySelector('.mapChangeBtn');
-let listChange = document.querySelector('.listChngeBtn');
 
 //宣告行政區域// 好累幹  阿我就不會其他方法嘛
 let taipeiTown = [
@@ -445,9 +444,11 @@ function changeMap(){
     if(listArea.className.match('d-block')){
         listArea.className = 'd-none';
         mapArea.className = 'd-block';
+        document.querySelector('.mapChangeBtn').textContent = '切換成清單';
     }else{
         listArea.className = 'd-block';
         mapArea.className = 'd-none';
+        document.querySelector('.mapChangeBtn').textContent = '切換成地圖';
     };
 };
 
