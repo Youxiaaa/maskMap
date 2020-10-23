@@ -82,6 +82,7 @@ defaultList();
 
 defaultMap();
 
+// 預設地圖 //
 function defaultMap(){
     let map = L.map('map', {
         center: [24.8813708,121.2893547],
@@ -110,7 +111,8 @@ function defaultMap(){
         let townSel = document.querySelector('.townSelClass').value;
         let data = JSON.parse(xml.responseText).features;
         for(let i = 0 ; i < data.length ; i++){
-            markers.addLayer(L.marker([data[i].geometry.coordinates[1],data[i].geometry.coordinates[0]]).bindPopup('<p class="h4">'+data[i].properties.name+'</p><p>'+ data[i].properties.address +'</p><p><a href="tel:" class="text-info h5">'+ data[i].properties.phone +'</a></p>'+ '<p class="h6">成人口罩 : <span class="h4 text-info">'+ data[i].properties.mask_adult +'</span></p><p class="h6">兒童口罩 : <span class="h4 text-info">'+ data[i].properties.mask_child +'</span></p>'));
+            markers.addLayer(L.marker([data[i].geometry.coordinates[1],data[i].geometry.coordinates[0]]).bindPopup('<p class="h4">'+data[i].properties.name+'</p><p>'+ data[i].properties.address +'</p><p><a href="tel:" class="text-info h5">'+ data[i].properties.phone +'</a></p>'+ '<p class="h6">成人口罩 : <span class="h4 text-info">'+ data[i].properties.mask_adult +'</span></p><p class="h6">兒童口罩 : <span class="h4 text-info">'+ data[i].properties.mask_child +'</span></p><small>最後更新時間 :</small><small class="text-secondary">'+ data[i].properties
+            .updated +'</small>'));
             map.addLayer(markers);
         }
     }
