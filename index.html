@@ -56,6 +56,14 @@ html,body{
 	.marker-cluster span {
 		line-height: 30px;
 		}
+    @media(max-width:768px){
+        .logo{
+            display: none;
+        }
+        .headerBar{
+            padding: 0 !important;
+        }
+    }
 
     .logoLink {
         text-decoration: none !important;
@@ -123,7 +131,7 @@ html,body{
 
 <body>
     <div class="sticky-top nav pl-5 mb-2 py-2 headerBar">
-        <h1 class="h3 mr-2"><a href="index.html" class="text-white logoLink">口罩地圖</a></h1>
+        <h1 class="h3 mr-2 logo"><a href="index.html" class="text-white logoLink">口罩地圖</a></h1>
         <div class="form-group d-flex mb-0 my-1">
             <select name="countySel" id="" class="countySelClass form-control form-control-sm mx-1"
                 style="width: 120px;">
