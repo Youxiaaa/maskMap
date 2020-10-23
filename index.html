@@ -16,8 +16,9 @@ html,body{
   width: 100%;
   height: 100%;
   background-color: #fdb515;
+  scroll-behavior: smooth;
 }
-#map { width: 100%;height: 100%; }
+#map { width: 100%;height: 100%; z-index: 99;}
 .marker-cluster-small {
 		background-color: #47caf199;
 		}
@@ -127,6 +128,15 @@ html,body{
         -moz-user-select: none;
         cursor: default;
     }
+    .topButton img{
+        width: 60px;
+        height: 60px;
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        z-index: 100;
+        cursor: pointer;
+    }
 </style>
 
 <body>
@@ -175,6 +185,11 @@ html,body{
     </section>
     <div id="map" class=""></div>
 
+    <div class="topButton">
+        <a href="#">
+            <img src="https://icon-library.com/images/back-to-top-icon-png/back-to-top-icon-png-7.jpg" alt="">
+        </a>
+    </div>
 
     
     <footer class="py-3">
