@@ -134,7 +134,7 @@ function defaultList(){
                 <div class="card-body">
                     <h5 class="card-title h1">${data[i].properties.name}</h5>
                     <small class="card-subtitle text-muted"> 最後更新時間 ：${data[i].properties.updated}</small>
-                    <p class="card-text">地址 : <span class="h5">${data[i].properties.address}<span></p>
+                    <p class="card-text mt-2">地址 : <span class="h5">${data[i].properties.address}<span></p>
                     <p class="card-text">電話 : <span class="h5"><a href="tel:" class="telColor">${data[i].properties.phone}</a></span></p>
                     <p class="card-text">成人口罩 : <span class="h3 maskAdult-color">${data[i].properties.mask_adult}</span></p>
                     <p class="card-text">兒童口罩 : <span class="h3 maskChild-color">${data[i].properties.mask_child}</span></p>
@@ -419,8 +419,8 @@ function updateList(e){
                 <div class="card h-100" >
                 <div class="card-body">
                     <h5 class="card-title h1">${data[i].properties.name}</h5>
-                    <small class="card-subtitle text-muted"> 最後更新時間 ：${data[i].properties.updated}</small>
-                    <p class="card-text">地址 : <span class="h5">${data[i].properties.address}<span></p>
+                    <small class="card-subtitle text-muted mb-2"> 最後更新時間 ：${data[i].properties.updated}</small>
+                    <p class="card-text mt-2">地址 : <span class="h5">${data[i].properties.address}<span></p>
                     <p class="card-text">電話 : <span class="h5"><a href="tel:" class="telColor">${data[i].properties.phone}</a></span></p>
                     <p class="card-text">成人口罩 : <span class="h3 maskAdult-color">${data[i].properties.mask_adult}</span></p>
                     <p class="card-text">兒童口罩 : <span class="h3 maskChld-color">${data[i].properties.mask_child}</span></p>
