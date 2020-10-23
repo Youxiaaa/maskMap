@@ -110,7 +110,7 @@ function defaultMap(){
         let townSel = document.querySelector('.townSelClass').value;
         let data = JSON.parse(xml.responseText).features;
         for(let i = 0 ; i < data.length ; i++){
-            markers.addLayer(L.marker([data[i].geometry.coordinates[1],data[i].geometry.coordinates[0]]).bindPopup('<p class="h4">'+data[i].properties.name+'</p><p>'+ data[i].properties.address +'</p><p><a href="tel:" class="text-info h5">'+ data[i].properties.phone +'</a></p>'+ '<p class="h6">成人口罩 : <span class="h4 text-info">'+ data[i].properties.mask_adult +'</span></p><p class="h6">兒童口罩 : <span class="h4 text-info">'+ data[i].properties.mask_child +'</span></p><small class="text-secondary">最後更新時間 :</small><small class="text-secondary">'+ data[i].properties
+            markers.addLayer(L.marker([data[i].geometry.coordinates[1],data[i].geometry.coordinates[0]]).bindPopup('<p class="h4">'+data[i].properties.name+'</p><p><a href="https://www.google.com.tw/maps/search/'+ data[i].properties.name +'/@'+ data[i].geometry.coordinates[1] +','+ data[i].geometry.coordinates[0] +',17.03z?hl=zh-TW" target="_blank" class="h6">'+ data[i].properties.address +'</a></p><a href="tel:" class="text-info h5">'+ data[i].properties.phone +'</a></p>'+ '<p class="h6">成人口罩 : <span class="h4 text-info">'+ data[i].properties.mask_adult +'</span></p><p class="h6">兒童口罩 : <span class="h4 text-info">'+ data[i].properties.mask_child +'</span></p><small class="text-secondary">最後更新時間 :</small><small class="text-secondary">'+ data[i].properties
             .updated +'</small>'));
             map.addLayer(markers);
         }
@@ -451,38 +451,3 @@ function changeMap(){
         document.querySelector('.mapChangeBtn').textContent = '切換成地圖';
     };
 };
-
-// function changeMapLocation(){
-//     let xml = new XMLHttpRequest();
-//     xml.open('get','https://raw.githubusercontent.com/kiang/pharmacies/master/json/points.json',true);
-//     xml.send(null);
-//     xml.onload = function(){
-//         let data = JSON.parse(xml.responseText).features;
-//         let dataLen = data.length;
-//         let countySel = document.querySelector('.countySelClass').value;
-//         let townSel = document.querySelector('.townSelClass').value;
-//         for(let i = 0 ; i < dataLen ; i++){
-//             if(data[i].properties.county === countySel && data[i].properties.town === townSel){
-//                  let map = L.map('map', {
-//                      center: [data[i].geometry.coordinates[1],data[].geometry.coordinates[0]],
-//                      zoom: 16
-//                  });
-                
-//                  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//                      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-//                  }).addTo(map);
-                
-//                  var greenIcon = new L.Icon({
-//                      iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
-//                      shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-//                      iconSize: [25, 41],
-//                      iconAnchor: [12, 41],
-//                      popupAnchor: [1, -34],
-//                      shadowSize: [41, 41]
-//                    });
-                
-//                  let markers = new L.MarkerClusterGroup().addTo(map);
-//             }
-//         }
-//     }
-// }
