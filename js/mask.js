@@ -411,6 +411,7 @@ function updateList(e){
         let dataLen = data.length;
         let str = '';
         for(let i = 0 ; i < dataLen ; i++){
+            if(countySel == '' || townSel == ''){return};
             if(data[i].properties.county === countySel && data[i].properties.town === townSel){
 
                 str +=
