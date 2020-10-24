@@ -1,8 +1,8 @@
-let list = document.querySelector('.listClass');
-let countySel = document.querySelector('.countySelClass');
-let townSel = document.querySelector('.townSelClass');
-let searchBtn = document.querySelector('.searchBtn');
-let mapChange = document.querySelector('.mapChangeBtn');
+const list = document.querySelector('.listClass');
+const countySel = document.querySelector('.countySelClass');
+const townSel = document.querySelector('.townSelClass');
+const searchBtn = document.querySelector('.searchBtn');
+const mapChange = document.querySelector('.mapChangeBtn');
 
 //宣告行政區域// 好累幹  阿我就不會其他方法嘛
 let taipeiTown = [
@@ -92,7 +92,7 @@ function defaultMap(){
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
     
-    var greenIcon = new L.Icon({
+    let greenIcon = new L.Icon({
         iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
         shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
         iconSize: [25, 41],
@@ -106,8 +106,6 @@ function defaultMap(){
     xml.open('get','https://raw.githubusercontent.com/kiang/pharmacies/master/json/points.json',true);
     xml.send(null);
     xml.onload = function(){
-        let countySel = document.querySelector('.countySelClass').value;
-        let townSel = document.querySelector('.townSelClass').value;
         let data = JSON.parse(xml.responseText).features;
         for(let i = 0 ; i < data.length ; i++){
             markers.addLayer(L.marker([data[i].geometry.coordinates[1],data[i].geometry.coordinates[0]]).bindPopup('<p class="h4">'+data[i].properties.name+'</p><p><a href="https://www.google.com.tw/maps/search/'+ data[i].properties.name +'/@'+ data[i].geometry.coordinates[1] +','+ data[i].geometry.coordinates[0] +',17.03z?hl=zh-TW" target="_blank" class="h6">'+ data[i].properties.address +'</a></p><a href="tel:" class="text-info h5">'+ data[i].properties.phone +'</a></p>'+ '<p class="h6">成人口罩 : <span class="h4 text-info">'+ data[i].properties.mask_adult +'</span></p><p class="h6">兒童口罩 : <span class="h4 text-info">'+ data[i].properties.mask_child +'</span></p><small class="text-secondary">最後更新時間 :</small><small class="text-secondary">'+ data[i].properties
@@ -434,7 +432,6 @@ function updateList(e){
         };
         list.innerHTML = str;
         window.scroll(0,0);
-        // changeMapLocation();
     };
 };
 
